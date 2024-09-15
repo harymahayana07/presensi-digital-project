@@ -26,8 +26,8 @@ class OfficeResource extends Resource
                 Forms\Components\TextInput::make('nama_kantor')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('alamat_kantor')
-                    ->maxLength(255),
+                Forms\Components\Textarea::make('alamat_kantor')
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('email_kantor')
                     ->email()
                     ->maxLength(255),
@@ -51,8 +51,8 @@ class OfficeResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nama_kantor')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('alamat_kantor')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('alamat_kantor')
+                //     ->searchable(),
                 Tables\Columns\TextColumn::make('email_kantor')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('latitude')
