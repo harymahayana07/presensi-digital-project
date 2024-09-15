@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('deskripsi_kantor')->nullable();
             $table->double('latitude');
             $table->double('longitude');
+            $table->integer('radius');
             $table->timestamps();
             $table->softDeletes();
         });
