@@ -17,22 +17,30 @@ class ShiftResource extends Resource
 {
     protected static ?string $model = Shift::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-arrow-path';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nama_shift')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('deskripsi_shift')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TimePicker::make('waktu_mulai')
-                    ->required(),
-                Forms\Components\TimePicker::make('waktu_berakhir')
-                    ->required(),
+                Forms\Components\Group::make()
+                ->schema([
+                    Forms\Components\Section::make()
+                    ->schema([
+                        Forms\Components\TextInput::make('nama_shift')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\Textarea::make('deskripsi_shift')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TimePicker::make('waktu_mulai')
+                        ->required(),
+                    Forms\Components\TimePicker::make('waktu_berakhir')
+                        ->required(),
+                    ])
+                ])
             ]);
     }
 

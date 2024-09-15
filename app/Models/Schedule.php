@@ -12,7 +12,8 @@ class Schedule extends Model
     protected $fillable = [
         'user_id',
         'shift_id',
-        'office_id'
+        'office_id',
+        'is_wfa'
     ];
 
     public function user(): BelongsTo
